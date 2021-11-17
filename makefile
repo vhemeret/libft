@@ -72,7 +72,7 @@ bonus :		$(OBJS) $(OBJSBONUS)
 			ar -rcs $(EXEC) $(OBJS) $(OBJSBONUS)
 
 clean :		
-			rm -f $(OBJS)
+			rm -f $(OBJS) $(OBJSBONUS)
 
 fclean :	clean
 			rm -f $(EXEC)
