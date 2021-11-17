@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 18:38:35 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/09 15:02:30 by vahemere         ###   ########.fr       */
+/*   Created: 2021/11/05 09:38:08 by vahemere          #+#    #+#             */
+/*   Updated: 2021/11/05 15:17:05 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	long	result;
-	long	sign;
+	char	*dest;
+	char	*empt;
+	size_t	i;
 
-	result = 0;
-	sign = 1;
-	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	i = 0;
+	empt = malloc(sizeof(char) * 1);
+	if (empt == NULL)
+		return (NULL);
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (empt);
+	dest = malloc(sizeof(char) * len + 1);
+	if (dest == NULL)
+		return (NULL);
+	while (i < len && s[start])
 	{
-		if (*nptr == '-')
-			sign *= -1;
-		nptr++;
+		dest[i] = s[start];
+		start++;
+		i++;
 	}
-	while (ft_isdigit(*nptr))
-	{
-		result = result * 10 + (*nptr - 48);
-		nptr++;
-	}
-	return (sign * result);
+	dest[i] = '\0';
+	return (dest);
 }

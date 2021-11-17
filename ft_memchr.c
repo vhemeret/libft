@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 01:44:44 by vahemere          #+#    #+#             */
-/*   Updated: 2021/10/26 20:22:30 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:35:59 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	str = (unsigned char *)s;
 	if (!n)
 		return (NULL);
-	while (str[++i] && i < n - 1)
+	while (++i < n)
 		if ((unsigned char)c == str[i])
 			return (&str[i]);
 	return (NULL);

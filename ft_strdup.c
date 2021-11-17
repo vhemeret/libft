@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 18:38:35 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/09 15:02:30 by vahemere         ###   ########.fr       */
+/*   Created: 2021/11/09 15:30:08 by vahemere          #+#    #+#             */
+/*   Updated: 2021/11/09 15:39:43 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+char	*ft_strdup(const char *s)
 {
-	long	result;
-	long	sign;
+	size_t	s_len;
+	size_t	i;
+	char	*dst;
 
-	result = 0;
-	sign = 1;
-	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
-			sign *= -1;
-		nptr++;
-	}
-	while (ft_isdigit(*nptr))
-	{
-		result = result * 10 + (*nptr - 48);
-		nptr++;
-	}
-	return (sign * result);
+	s_len = ft_strlen(s);
+	dst = malloc(sizeof(char) * (s_len + 1));
+	if (!dst)
+		return (NULL);
+	i = -1;
+	while (s[++i])
+		dst[i] = s[i];
+	dst[i] = '\0';
+	return (dst);
 }

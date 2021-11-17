@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 18:38:35 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/09 15:02:30 by vahemere         ###   ########.fr       */
+/*   Created: 2021/11/05 11:29:49 by vahemere          #+#    #+#             */
+/*   Updated: 2021/11/09 15:24:39 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	*ft_calloc(size_t nbem, size_t size)
 {
-	long	result;
-	long	sign;
+	void	*arr;
 
-	result = 0;
-	sign = 1;
-	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
-			sign *= -1;
-		nptr++;
-	}
-	while (ft_isdigit(*nptr))
-	{
-		result = result * 10 + (*nptr - 48);
-		nptr++;
-	}
-	return (sign * result);
+	arr = malloc(nbem * size);
+	if (arr == NULL)
+		return (NULL);
+	arr = ft_memset(arr, 0, (nbem * size));
+	return (arr);
 }

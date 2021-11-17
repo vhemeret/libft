@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 18:38:35 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/09 15:02:30 by vahemere         ###   ########.fr       */
+/*   Created: 2021/11/14 19:58:13 by vahemere          #+#    #+#             */
+/*   Updated: 2021/11/14 20:03:21 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_putstr_fd(char *s, int fd)
 {
-	long	result;
-	long	sign;
-
-	result = 0;
-	sign = 1;
-	while ((*nptr >= 9 && *nptr <= 13) || *nptr == ' ')
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
+	if (s)
 	{
-		if (*nptr == '-')
-			sign *= -1;
-		nptr++;
+		while (*s)
+		{
+			ft_putchar_fd(*s, fd);
+			s++;
+		}
 	}
-	while (ft_isdigit(*nptr))
-	{
-		result = result * 10 + (*nptr - 48);
-		nptr++;
-	}
-	return (sign * result);
 }

@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 23:11:45 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/08 19:18:08 by vahemere         ###   ########.fr       */
+/*   Created: 2021/11/09 16:30:17 by vahemere          #+#    #+#             */
+/*   Updated: 2021/11/09 18:52:00 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+size_t	is_set(char c, const char *set)
 {
 	size_t	i;
-	char	*str;
 
 	i = -1;
-	str = (char *)s;
-	while (str[++i] != c)
-		if (str[i] == 0)
-			return (NULL);
-	return (&str[i]);
+	while (set[++i])
+		if (c == set[i])
+			return (0);
+	return (1);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	head;
+	size_t	foot;
+
+	head = 0;
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return (ft_strdup(s1));
+	while (s1[head] && !is_set(s1[head], set))
+		head++;
+	foot = ft_strlen(s1) - 1;
+	while (foot && !is_set(s1[foot], set))
+		foot--;
+	return (ft_substr(s1, head, (foot - head) + 1));
 }

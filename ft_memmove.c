@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 02:23:38 by vahemere          #+#    #+#             */
-/*   Updated: 2021/10/25 19:21:14 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/08 17:19:05 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
+	size_t			i;
 
 	if (!dest && !src)
 		return (NULL);
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
 	if (d > s)
-	{
-		while (n)
-		{
-			d[n - 1] = s[n - 1];
-			n--;
-		}
-	}
+		while (n--)
+			d[n] = s[n];
 	else
-		ft_memcpy(dest, src, n);
+	{
+		i = -1;
+		while (++i < n)
+			d[i] = s[i];
+	}
 	return (dest);
 }
