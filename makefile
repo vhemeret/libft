@@ -6,7 +6,7 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 19:41:34 by vahemere          #+#    #+#              #
-#    Updated: 2021/11/14 23:07:23 by vahemere         ###   ########.fr        #
+#    Updated: 2021/11/22 01:21:12 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRCS =		ft_atoi.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
+			ft_striteri.c \
 
 SRCSBONUS =	ft_lstnew.c \
 			ft_lstadd_front.c \
@@ -53,30 +54,29 @@ SRCSBONUS =	ft_lstnew.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
-			ft_striteri.c \
 
 OBJS = ${SRCS:.c=.o}
 OBJSBONUS = ${SRCSBONUS:.c=.o}
 EXEC = libft.a
 COMPIL = gcc -Wall -Wextra -Werror
 
-all :		${EXEC}
+all : ${EXEC}
 
 .c.o :
 			${COMPIL} -c $< -o ${<:.c=.o}
 
-$(EXEC) :	$(OBJS)
+$(EXEC) : $(OBJS)
 			ar -rcs $(EXEC) $(OBJS)
 
-bonus :		$(OBJS) $(OBJSBONUS)
+bonus : $(OBJS) $(OBJSBONUS)
 			ar -rcs $(EXEC) $(OBJS) $(OBJSBONUS)
 
 clean :		
 			rm -f $(OBJS) $(OBJSBONUS)
 
-fclean :	clean
+fclean : clean
 			rm -f $(EXEC)
 
-re :		fclean all
+re : fclean all
 
-.PHONY :	all clean fclean re
+.PHONY : bonus all clean fclean re
