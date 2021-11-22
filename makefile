@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 19:41:34 by vahemere          #+#    #+#              #
-#    Updated: 2021/11/22 01:21:12 by vahemere         ###   ########.fr        #
+#    Updated: 2021/11/22 01:39:24 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,8 @@ SRCS =		ft_atoi.c \
 			ft_putnbr_fd.c \
 			ft_striteri.c \
 
+OBJS = ${SRCS:.c=.o}
+
 SRCSBONUS =	ft_lstnew.c \
 			ft_lstadd_front.c \
 			ft_lstsize.c \
@@ -55,27 +57,27 @@ SRCSBONUS =	ft_lstnew.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
 
-OBJS = ${SRCS:.c=.o}
 OBJSBONUS = ${SRCSBONUS:.c=.o}
-EXEC = libft.a
+
+NAME = libft.a
 COMPIL = gcc -Wall -Wextra -Werror
 
-all : ${EXEC}
+all : ${NAME}
 
 .c.o :
 			${COMPIL} -c $< -o ${<:.c=.o}
 
-$(EXEC) : $(OBJS)
-			ar -rcs $(EXEC) $(OBJS)
+$(NAME) : $(OBJS)
+			ar -rcs $(NAME) $(OBJS)
 
 bonus : $(OBJS) $(OBJSBONUS)
-			ar -rcs $(EXEC) $(OBJS) $(OBJSBONUS)
+			ar -rcs $(NAME) $(OBJS) $(OBJSBONUS)
 
 clean :		
 			rm -f $(OBJS) $(OBJSBONUS)
 
 fclean : clean
-			rm -f $(EXEC)
+			rm -f $(NAME)
 
 re : fclean all
 

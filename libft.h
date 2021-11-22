@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 00:25:25 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/22 01:10:35 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/22 01:46:18 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}						t_list;
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
