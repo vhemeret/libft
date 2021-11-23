@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 19:41:34 by vahemere          #+#    #+#              #
-#    Updated: 2021/11/22 01:39:24 by vahemere         ###   ########.fr        #
+#    Updated: 2021/11/23 15:45:44 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,10 @@ SRCSBONUS =	ft_lstnew.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
 			ft_lstadd_back.c \
-			ft_lstdelone.c \
-			ft_lstclear.c \
-			ft_lstiter.c \
-			ft_lstmap.c \
+		#	ft_lstdelone.c \
+		#	ft_lstclear.c \
+		#	ft_lstiter.c \
+		#	ft_lstmap.c \
 
 OBJSBONUS = ${SRCSBONUS:.c=.o}
 
