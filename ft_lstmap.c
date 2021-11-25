@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 17:48:40 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/25 15:57:50 by vahemere         ###   ########.fr       */
+/*   Created: 2021/11/25 16:50:02 by vahemere          #+#    #+#             */
+/*   Updated: 2021/11/25 17:09:11 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (lst)
-	{
-		if (lst->content)
-			(*del)(lst->content);
-		free(lst);
-	}
+
 }
