@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 19:41:34 by vahemere          #+#    #+#              #
-#    Updated: 2021/11/25 16:50:38 by vahemere         ###   ########.fr        #
+#    Updated: 2021/11/22 01:39:24 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,13 +48,13 @@ SRCS =		ft_atoi.c \
 OBJS = ${SRCS:.c=.o}
 
 SRCSBONUS =	ft_lstnew.c \
-			ft_lstadd_front.c \
 			ft_lstsize.c \
 			ft_lstlast.c \
 			ft_lstadd_back.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
+			ft_lstadd_front.c \
 			ft_lstmap.c \
 
 OBJSBONUS = ${SRCSBONUS:.c=.o}
@@ -65,7 +65,11 @@ COMPIL = gcc -Wall -Wextra -Werror
 all : ${NAME}
 
 .c.o :
-			${COMPIL} -c $< -o ${<:.c=.o}
+	${COMPIL} -c $< -o ${<:.c=.o}
+so:
+	$(COMPIL) -nostartfiles -fPIC $(SRCS) $(SRCSBONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJSBONUS)
+
 
 $(NAME) : $(OBJS)
 			ar -rcs $(NAME) $(OBJS)
