@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:30:17 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/09 18:52:00 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/28 01:15:25 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(s1));
 	while (s1[head] && !is_set(s1[head], set))
 		head++;
+	if (s1[head] == '\0')
+		return (ft_strdup("\0"));
 	foot = ft_strlen(s1) - 1;
 	while (foot && !is_set(s1[foot], set))
 		foot--;

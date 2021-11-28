@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:50:02 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/25 17:09:11 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/27 19:15:47 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list  *tmp;
-	t_list  *current;
-	t_list  *new;
+	t_list	*tmp;
+	t_list	*current;
+	t_list	*new;
 
+	current = NULL;
+	new = NULL;
 	if (!lst || !f)
 		return (NULL);
 	current = lst;
