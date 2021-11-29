@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 23:11:45 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/08 19:18:08 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/29 18:59:50 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strchr(const char *s, int c)
 
 	i = -1;
 	str = (char *)s;
-	while (str[++i] != c)
-		if (str[i] == 0)
-			return (NULL);
-	return (&str[i]);
+	while (++i <= ft_strlen(s))
+		if (str[i] == (char)c)
+			return (&str[i]);
+	return (NULL);
 }

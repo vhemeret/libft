@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 23:58:11 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/10 18:31:53 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:37:19 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	nb_words(char const *s, char c)
 	i = -1;
 	word = 0;
 	while (s[++i])
-		if (is_sep((char)s[i], c) && (i == 0 || is_sep((char)s[i - 1], c)))
+		if (is_sep((char)s[i], c) && (i == 0 || !is_sep((char)s[i - 1], c)))
 			word++;
 	return (word);
 }
@@ -57,15 +57,18 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	word = 0;
-	i = -1;
+	i = 0;
 	if (!s)
 		return (NULL);
 	tab = malloc(sizeof(*tab) * (nb_words(s, c) + 1));
 	if (!tab)
 		return (NULL);
+	while (s[i] && !is_sep((char)s[i], c))
+		i++;
+	i -= 1;
 	while (s[++i] && word < nb_words(s, c))
 	{
-		if (is_sep(s[i], c) && (i == 0 || !is_sep(s[i - 1], c)))
+		if (is_sep((char)s[i], c) && (i == 0 || !is_sep((char)s[i - 1], c)))
 		{
 			tab[word] = put_in_tab(&s[i], c);
 			word++;

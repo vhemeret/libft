@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 23:44:52 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/08 19:24:19 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/29 18:59:09 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	if (c == '\0')
 		return ((char *)s + i);
 	while (i--)
-		if (c == s[i])
+		if ((char)c == s[i])
 			return ((char *)s + i);
 	return (NULL);
 }

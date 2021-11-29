@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:50:02 by vahemere          #+#    #+#             */
-/*   Updated: 2021/11/27 19:15:47 by vahemere         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:38:53 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	current = lst;
 	while (current)
 	{
-		tmp = ft_lstnew(f(lst->content));
+		tmp = ft_lstnew(f(current->content));
 		if (!tmp)
 		{
 			ft_lstclear(&lst, del);
